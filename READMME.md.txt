@@ -1,0 +1,33 @@
+# ---------- 3.1 Create repository, add file, commit ----------
+
+git init
+echo "Hello DevOps" > file.txt
+git add file.txt
+git commit -m "First commit"
+
+
+# ---------- 3.2 Push local repository to GitHub ----------
+
+git remote add origin https://github.com/your-username/repo-name.git
+git branch -M main
+git push -u origin main
+
+
+# ---------- 3.3 Create branch (MITS) and modify file ----------
+
+git branch MITS
+git checkout MITS
+echo "Change from MITS branch" >> file.txt
+git add .
+git commit -m "Updated in MITS branch"
+
+
+# ---------- 3.4 Merge branch with main ----------
+
+git checkout main
+git merge MITS
+
+
+# ---------- 3.5 Display commit history ----------
+
+git log
