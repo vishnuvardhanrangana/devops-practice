@@ -31,3 +31,37 @@ git merge MITS
 # ---------- 3.5 Display commit history ----------
 
 git log
+
+# ---------- PROGRAM 1: Open Google ----------
+
+from selenium import webdriver
+
+driver = webdriver.Chrome()
+driver.get("https://www.google.com")
+
+
+# ---------- PROGRAM 2: Search in Google ----------
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+
+driver = webdriver.Chrome()
+driver.get("https://www.google.com")
+
+search_box = driver.find_element(By.NAME, "q")
+search_box.send_keys("DevOps")
+search_box.send_keys(Keys.RETURN)
+
+
+# ---------- PROGRAM 3: Login Example ----------
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+driver = webdriver.Chrome()
+driver.get("https://example.com/login")
+
+driver.find_element(By.NAME, "username").send_keys("admin")
+driver.find_element(By.NAME, "password").send_keys("1234")
+driver.find_element(By.NAME, "login").click()
