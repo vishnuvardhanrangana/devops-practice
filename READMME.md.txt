@@ -35,33 +35,39 @@ git log
 # ---------- PROGRAM 1: Open Google ----------
 
 from selenium import webdriver
-
-driver = webdriver.Chrome()
+from selenium.webdriver.common.by import By
+import time
+driver = webdriver.Edge()
 driver.get("https://www.google.com")
+time.sleep(5)
+e = driver.find_element(By.NAME, "q")
+print(e.tag_name, e.get_attribute("type"))
+driver.quit()
 
 
 # ---------- PROGRAM 2: Search in Google ----------
 
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-
-driver = webdriver.Chrome()
+driver = webdriver.Edge()
 driver.get("https://www.google.com")
-
-search_box = driver.find_element(By.NAME, "q")
-search_box.send_keys("DevOps")
-search_box.send_keys(Keys.RETURN)
+search = driver.find_element(By.NAME, "q")
+btn = driver.find_element(By.NAME, "btnK")
+print(search.is_displayed(), btn.is_enabled())
+search.send_keys("Selenium")
+driver.quit()
 
 
 # ---------- PROGRAM 3: Login Example ----------
 
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-
-driver = webdriver.Chrome()
-driver.get("https://example.com/login")
-
-driver.find_element(By.NAME, "username").send_keys("admin")
-driver.find_element(By.NAME, "password").send_keys("1234")
-driver.find_element(By.NAME, "login").click()
+driver = webdriver.Edge()
+driver.get("https://www.facebook.com")
+driver.find_element(By.ID, "email")
+driver.find_element(By.ID, "pass")
+driver.find_element(By.NAME, "login")
+print("Login page elements found")
+driver.quit()
